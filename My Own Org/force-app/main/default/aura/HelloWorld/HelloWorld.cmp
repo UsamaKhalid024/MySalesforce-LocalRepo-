@@ -1,0 +1,20 @@
+<aura:component>
+    <aura:attribute name = 'message' type='list' default = "['Message 1',
+                                                            'Message 2',
+                                                            'Message 3',
+                                                            'Message 4',
+                                                            'Message 5']" />
+    
+    
+    <c:helloHeading message = '{!v.message}' />
+    
+    
+    <h2>Conditional Statements</h2>
+    <aura:if isTrue = '{!$Broweser.isIphone}' >
+    	{!v.message[0]} if
+        <aura:set attribute = 'else'>
+            {!v.message[1]} else
+        </aura:set>
+    </aura:if>
+    
+</aura:component>

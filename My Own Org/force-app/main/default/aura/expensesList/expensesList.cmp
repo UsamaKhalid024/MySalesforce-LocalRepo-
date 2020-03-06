@@ -1,0 +1,32 @@
+<aura:component controller="ExpensesController">
+	
+    <aura:attribute name="expenses" type="Expense__c" />
+    
+    <lightning:card title="{!v.expenses.Name}" iconName="standard:scan_card" class="" >
+
+                    <aura:set attribute='footer'>
+                        <p>Date: <lightning:formattedDateTime value='{!v.expenses.Date__c}' /></p>
+                        <p class="slds-text-title"><lightning:relativeDateTime value="{!v.formatdate}"/></p>
+                    </aura:set>
+                    
+                    <p class="slds-text-heading--medium slds-p-horizontal--small">
+                        Amount: <lightning:formattedNumber value='{!v.expenses.Amount__c}' style='currency' />
+                    </p>
+                    
+                    <p class="slds-p-horizontal-small">
+                        Client: {!v.expenses.Client__c}
+                    </p>
+                    
+                    <p>
+                        <lightning:input type="toggle"
+                                             label="Reimbursed?"
+                                             name="reimbursed"
+                                             class="slds-p-around--small"
+                                             checked="{!v.expenses.Reimbursed__c}"
+                                             messageToggleActive="Yes"
+                                             messageToggleInactive="No"
+                                             onchange="{!c.clickReimbursed}"/>
+                    </p>
+                    </lightning:card>
+    
+</aura:component>

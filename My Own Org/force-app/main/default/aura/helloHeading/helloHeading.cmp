@@ -1,0 +1,14 @@
+<aura:component >
+	
+    <aura:attribute name = 'message' type='List'/>
+    
+    
+    <h2>List Iteration</h2>
+    
+    <aura:iteration items = '{!v.message}' var = 'msg'>
+    	{!msg}
+    </aura:iteration>
+    
+    
+    
+</aura:component>

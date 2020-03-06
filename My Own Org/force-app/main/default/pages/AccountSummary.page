@@ -1,0 +1,25 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" >
+    <!--<apex:detail relatedList="false" />-->
+	
+    <!--<apex:pageBlock title="Account Details">
+    	<apex:pageBlockSection>
+        	<apex:outputField value="{!Account.Name}" />
+            <apex:outputField value="{!Account.Name}" />
+            <apex:outputField value="{!Account.Name}" />
+            <apex:outputField value="{!Account.Name}" />
+            <apex:outputField value="{!Account.Name}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:relatedList list="Contacts" />-->
+    
+    <apex:pageBlock title="Contacts">
+    	<apex:pageBlockTable value="{!Account.Contacts}" var="contactinfo">
+            <apex:column value="{!contactinfo.id}" />
+        	<apex:column value="{!contactinfo.FirstName}" />
+            <apex:column value="{!contactinfo.LastName}" />
+            <apex:column value="{!contactinfo.Email}" />
+            <apex:column value="{!contactinfo.CreatedDate}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+</apex:page>

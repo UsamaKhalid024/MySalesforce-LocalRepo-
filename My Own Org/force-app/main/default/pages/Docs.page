@@ -1,0 +1,5 @@
+<apex:page controller="DocsCtlr" renderAs="pdf">
+    <h1>
+        Different Docs
+    </h1>
+</apex:page>

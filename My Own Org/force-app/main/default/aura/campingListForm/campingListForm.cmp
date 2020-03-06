@@ -1,0 +1,63 @@
+<aura:component controller="CampingListController">
+	
+    
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    <!-- handler -->
+    <aura:attribute name='items' type='Camping_Item__c[]' />
+  
+    <aura:iteration items="{!v.items}" var="campitems">
+        
+        <lightning:layout class='slds-page-header slds-page-header--object-home'>
+            <c:campingHeader />
+        </lightning:layout>
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small" size="6">
+                <div aria-labelledby="newexpenseform">
+                <fieldset class="slds-box slds-theme--default slds-container--small">
+                	 <p>
+                            <div class=''>
+                                <lightning:input aura:id='campingdatavalidate' 
+                                                 type='text' 
+                                                 label='Name' 
+                                                 value='{!campitems.Name}' />
+                            </div>
+                        </p>
+                        <p>
+                            <div class=''>
+                                <lightning:input aura:id='campingdatavalidate' 
+                                                 type='number' 
+                                                 formatter='currency' 
+                                                 label='Price' 
+                                                 value='{!campitems.Price__c}'  />
+                            </div>
+                        </p>
+                        <p>
+                            <div class=''>
+                                <lightning:input aura:id='campingdatavalidate' 
+                                                 type='number' 
+                                                 label='Quantity' 
+                                                 value='{!campitems.Quantity__c}' 
+                                                 style='number' 
+                                                 min='1' />
+                            </div>
+                        </p>
+                        <p>
+                            <lightning:input type="checkbox" 
+                                             aura:id="itemForm" 
+                                             label="Packed?"  
+                                             name="Packed"
+                                             checked="{!campitems.Packed__c}"/>
+                        </p> 
+                </fieldset>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:iteration>		
+    					<p>
+                            <lightning:button label='Submit Form' 
+                                              class="slds-m-top--medium" 
+                                              variant="brand" 
+                                              onclick="{!c.saveItemAction}" />
+                        </p>
+</aura:component>

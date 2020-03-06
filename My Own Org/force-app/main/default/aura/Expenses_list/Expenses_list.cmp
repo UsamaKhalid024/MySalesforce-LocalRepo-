@@ -1,0 +1,7 @@
+<aura:component controller='ExpensesController'>
+
+    <aura:attribute name="formateddate" type="Date" />
+    <aura:attribute name="expense" type="Expense__c" />
+
+    
+</aura:component>

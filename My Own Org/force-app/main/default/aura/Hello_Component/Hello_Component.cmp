@@ -1,0 +1,15 @@
+<aura:component >
+    <aura:attribute name='message' type='string' default='Pakistan Zindabad' />
+    
+    <p>Today Message is : {!v.message}</p>
+    
+    <div>
+
+        <!-- Base variant: Makes a button look like a link -->
+        <lightning:button variant="base" label="You look nice today" title="Base action" onclick="{! c.handleClick1 }"/>
+        
+        <lightning:button variant="base" label="Today is going to be a great day!" title="Base action" onclick="{! c.handleClick2 }"/>
+
+    </div>
+    
+</aura:component>

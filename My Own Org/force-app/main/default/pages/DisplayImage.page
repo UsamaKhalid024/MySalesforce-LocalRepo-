@@ -1,0 +1,27 @@
+<apex:page showHeader="false" sidebar="false"> 
+    
+    <apex:pageBlock title="User Status">
+    	<apex:pageBlockSection columns="1">
+        	
+            {! $user.FirstName &' '& $user.LastName}
+            <br />
+            {! TODAY()}
+            <br />
+            {! TODAY() + 7}
+            
+            <br />
+            		
+			<p>{! IF( CONTAINS('salesforce.com','force.com'), 
+                 'Yep', 'Nope') }</p>
+            <p>{! IF( DAY(TODAY()) < 15, 
+                 'Before the 15th', 'The 15th or after') }</p>
+            
+            <br />
+            
+            ({! IF($User.isActive, $User.Username, 'inactive') })
+            
+            
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+</apex:page>
