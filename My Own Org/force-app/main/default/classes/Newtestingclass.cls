@@ -13,5 +13,6 @@ public class Newtestingclass {
     public static void test(){
         system.debug('akshdkjahsjkd');
         system.debug('usama khalid');
+        system.debug('usama khalid');
     }
 }
