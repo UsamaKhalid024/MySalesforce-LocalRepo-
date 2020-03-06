@@ -1,3 +1,14 @@
+/**
+ * @File Name          : ExpensesController.cls
+ * @Description        : 
+ * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Group              : 
+ * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Last Modified On   : 06/03/2020, 4:00:28 pm
+ * @Modification Log   : 
+ * Ver       Date            Author      		    Modification
+ * 1.0    06/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+**/
 public class ExpensesController {
 	
     @AuraEnabled
@@ -9,6 +20,7 @@ public class ExpensesController {
     
     @AuraEnabled
     public static Expense__c Saveexpense(Expense__c getexpenses){
+        update getexpenses;
         update getexpenses;
         return getexpenses;
     }
