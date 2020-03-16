@@ -37,31 +37,5 @@ node {
             robj = null
 
         }
-
-        stage('Push To Test Org') {
-            rc = bat returnStatus: true, script: "${toolbelt}/sfdx force:source:push --targetusername ${SFDC_USERNAME}"
-            if (rc != 0) {
-                error 'push failed'
-            }
-            // assign permset
-            rc = bat returnStatus: true, script: "${toolbelt}/sfdx force:user:permset:assign --targetusername ${SFDC_USERNAME} --permsetname DreamHouse"
-            if (rc != 0) {
-                error 'permset:assign failed'
-            }
-        }
-
-        stage('Run Apex Test') {
-            bat "mkdir -p ${RUN_ARTIFACT_DIR}"
-            timeout(time: 120, unit: 'SECONDS') {
-                rc = bat returnStatus: true, script: "${toolbelt}/sfdx force:apex:test:run --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --resultformat tap --targetusername ${SFDC_USERNAME}"
-                if (rc != 0) {
-                    error 'apex test run failed'
-                }
-            }
-        }
-
-        stage('collect results') {
-            junit keepLongStdio: true, testResults: 'tests/**/*-junit.xml'
-        }
     }
 }
