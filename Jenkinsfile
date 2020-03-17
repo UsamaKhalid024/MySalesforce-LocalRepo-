@@ -36,10 +36,10 @@ node {
         }
 
         stage("Convert to mdapi"){
-            rc = bat returnStatus: true, script: "mkdir mdapi"
-            if (rc != 0) { error 'cannot create mdapi diretory' }
-            rc = bat returnStatus: true, script: "sfdx force:source:convert -d mdapi"
-            if (rc != 0) { error 'cannot convert source to mdapi' }
+            //rc = bat returnStatus: true, script: "mkdir mdapi"
+            //if (rc != 0) { error 'cannot create mdapi diretory' }
+            //rc = bat returnStatus: true, script: "sfdx force:source:convert -d mdapi"
+            //if (rc != 0) { error 'cannot convert source to mdapi' }
         }
 
 		stage('Deploye Code'){
