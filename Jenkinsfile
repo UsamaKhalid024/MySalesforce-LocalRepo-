@@ -24,7 +24,7 @@ node {
     }
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
-        stage('Deploye Code') {
+        stage('Authorize to Salesforce') {
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }else{
@@ -33,8 +33,10 @@ node {
             if (rc != 0) { error 'hub org authorization failed' }
 
 			println rc
-			
-			// need to pull out assigned username
+        }
+        
+		stage('Deploye Code'){
+            // need to pull out assigned username
 			if (isUnix()) {
 				rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 			}else{
@@ -53,8 +55,10 @@ node {
                 cleanWs()
             }
             always {
-                bat "sfdx force:auth:logout -u ${HUB_ORG} -p" 
-                bat "sfdx force:auth:logout -u ${HUB_ORG} -p"
+                rc = bat returnStatus: true, script: "sfdx force:auth:logout -u ${HUB_ORG} -p"
+                if (rc != 0) {
+                        error 'Unable to log out of Production Org'
+                    }
             }
         }
     }
