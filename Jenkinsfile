@@ -49,9 +49,6 @@ node {
 			}else{
 			   rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d mdapi -u ${HUB_ORG}"
 			}
-            printf rmsg
-            println('Hello from a Job DSL script!')
-            println(rmsg)
 
 
 
@@ -60,9 +57,6 @@ node {
 			}else{
 			   rc = bat returnStatus: true, script: "sfdx force:mdapi:deploy:report -u ${HUB_ORG}"
 			}
-            printf rc
-            println('report script!')
-            println(rc)
         }
 
 
