@@ -56,9 +56,9 @@ node {
 
 
             if (isUnix()) {
-				rc = sh returnStdout: true, script: "${toolbelt} sfdx force:mdapi:deploy:report"
+				rc = sh returnStdout: true, script: "${toolbelt} sfdx force:mdapi:deploy:report -u ${HUB_ORG}"
 			}else{
-			   rc = bat returnStdout: true, script: "sfdx force:mdapi:deploy:report"
+			   rc = bat returnStdout: true, script: "sfdx force:mdapi:deploy:report -u ${HUB_ORG}"
 			}
             printf rc
             println('report script!')
