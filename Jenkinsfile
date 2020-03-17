@@ -38,7 +38,7 @@ node {
 			if (isUnix()) {
 				rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 			}else{
-			   rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d sfdx force:source:deploy --sourcepath c:/Usama Khalid/MyStandardOrgData/MySalesforce-LocalRepo-/force-app/main/default/classes/Account_Details.cls --json -u ${HUB_ORG}"
+			   rmsg = bat returnStdout: true, script: "sfdx force:source:deploy --sourcepath c:/Usama Khalid/MyStandardOrgData/MySalesforce-LocalRepo-/force-app/main/default/classes/Account_Details.cls --json"
 			}
 			  
             printf rmsg
