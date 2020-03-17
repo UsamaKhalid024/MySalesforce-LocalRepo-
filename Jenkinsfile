@@ -34,7 +34,7 @@ node {
 
 			println rc
         }
-        
+
 		stage('Deploye Code'){
             // need to pull out assigned username
 			if (isUnix()) {
@@ -42,7 +42,6 @@ node {
 			}else{
 			   rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d manifest -u ${HUB_ORG}"
 			}
-			  
             printf rmsg
             println('Hello from a Job DSL script!')
             println(rmsg)
@@ -50,15 +49,11 @@ node {
 
 
         post {
-
-            cleanup {
-                cleanWs()
-            }
             always {
                 rc = bat returnStatus: true, script: "sfdx force:auth:logout -u ${HUB_ORG} -p"
                 if (rc != 0) {
-                        error 'Unable to log out of Production Org'
-                    }
+                    error 'Unable to log out of Production Org'
+                }
             }
         }
     }
