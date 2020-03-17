@@ -26,7 +26,7 @@ node {
         stage('Create Scratch Org') {
 
             rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" -d --instanceurl ${SFDC_HOST}"
-            echo "rc is : "rc
+            
             if (rc != 0) { error 'hub org authorization failed' }
 
             // need to pull out assigned username
