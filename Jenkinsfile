@@ -21,7 +21,7 @@ pipeline {
         //Jenkins env vars
         SERIAL = System.currentTimeMillis()
         BRANCH = "https://github.com/UsamaKhalid024/MySalesforce-LocalRepo-.git"
-
+        JWT_KEY_CRED_ID = "96495e93-dfab-4f80-af4e-d5cea98cec2e"
         }
 
     stages {
