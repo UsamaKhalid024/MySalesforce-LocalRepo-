@@ -6,15 +6,12 @@ import com.claimvantage.sjsl.Package
 
 node {
     stage("checkout") {
-        ...
     }
     withOrgsInParallel() { org ->
         stage("${org.name} create") {
             createScratchOrg org
         }
-        ...
     }
     stage("publish") {
-        ...
     }
 }
