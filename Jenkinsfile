@@ -35,16 +35,19 @@ node {
 			println rc
         }
 
-        
-        stage('Push To Test Org') {
-            rc = bat returnStatus: true, script: "sfdx force:source:push --targetusername ${HUB_ORG}"
-            if (rc != 0) {
-                error 'push failed'
-            }
-            // assign permset
-            rc = sh returnStatus: true, script: "sfdx force:user:permset:assign --targetusername ${HUB_ORG} --permsetname Dev-Org"
-            if (rc != 0) {
-                error 'permset:assign failed'
+        /*stage("Convert to mdapi"){
+            rc = bat returnStatus: true, script: "mkdir mdapi"
+            if (rc != 0) { error 'cannot create mdapi diretory' }
+            rc = bat returnStatus: true, script: "sfdx force:source:convert -d mdapi"
+            if (rc != 0) { error 'cannot convert source to mdapi' }
+        }*/
+
+        stage('Deploye Code'){
+            // need to pull out assigned username
+            if (isUnix()) {
+                rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
+            }else{
+                rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d manifest -u ${HUB_ORG}"
             }
         }
 
@@ -62,5 +65,4 @@ node {
                 }*/
             }
         }
-    }
 }
