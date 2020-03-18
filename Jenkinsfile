@@ -66,6 +66,13 @@ node {
             }
         }
 
+        stage('Changes Status'){
+            state = bat returnStatus: true, script: "sfdx force:source:status -a -u ${HUB_ORG}"
+            if(state != 0){
+                error 'Error in generating status'
+            }
+        }
+
         stage('collect results') {
             junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
         }
