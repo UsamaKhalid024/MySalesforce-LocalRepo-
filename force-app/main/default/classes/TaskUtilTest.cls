@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 18/03/2020, 1:59:38 pm
+ * @Last Modified On   : 18/03/2020, 2:12:21 pm
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -12,6 +12,7 @@
 @isTest
 private class TaskUtilTest {
     @isTest static void testTaskPriority() {
+        System.debug('Testing');
         String pri = TaskUtil.getTaskPriority('CA');
         System.assertEquals('Normal', pri);
     }
