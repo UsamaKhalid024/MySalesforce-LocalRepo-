@@ -47,7 +47,7 @@ node {
             if (isUnix()) {
                 rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
             }else{
-                rmsg = bat returnStdout: true, script: "sfdx force:source:deploy -m ApexClass:TaskUtil.cls -u ${HUB_ORG}"
+                rmsg = bat returnStdout: true, script: "sfdx force:source:deploy -m ApexClass:TaskUtil -u ${HUB_ORG}"
             }
         }
 
