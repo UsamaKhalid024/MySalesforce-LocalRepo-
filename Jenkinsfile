@@ -54,7 +54,7 @@ node {
         stage('Run Apex Test') {
 
             timeout(time: 120, unit: 'SECONDS') {
-                rc = bat returnStatus: true, script: "sfdx force:apex:test:run -l RunLocalTests --resultformat tap --codecoverage --targetusername ${HUB_ORG}"
+                rc = bat returnStatus: true, script: "sfdx force:apex:test:run --synchronous -l RunLocalTests --resultformat tap --codecoverage --targetusername ${HUB_ORG}"
                 if (rc != 0) {
                     error 'apex test run failed'
                 }
