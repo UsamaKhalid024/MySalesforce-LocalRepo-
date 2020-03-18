@@ -67,7 +67,7 @@ node {
         }
 
         stage('Changes Status'){
-            state = bat returnStatus: true, script: "sfdx force:source:status -a -u ${HUB_ORG}"
+            state = bat returnStatus: true, script: "sfdx force:source:status -a -u ${HUB_ORG} --json"
             if(state != 0){
                 error 'Error in generating status'
             }
