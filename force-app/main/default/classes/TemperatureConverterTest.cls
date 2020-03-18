@@ -1,3 +1,14 @@
+/**
+ * @File Name          : TemperatureConverterTest.cls
+ * @Description        : 
+ * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Group              : 
+ * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Last Modified On   : 18/03/2020, 1:45:38 pm
+ * @Modification Log   : 
+ * Ver       Date            Author      		    Modification
+ * 1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+**/
 @isTest
 private class TemperatureConverterTest {
     @isTest static void testWarmTemp() {
@@ -12,7 +23,7 @@ private class TemperatureConverterTest {
     @isTest static void testBoilingPoint() {
         Decimal celsius = TemperatureConverter.FahrenheitToCelsius(212);        
         // Simulate failure
-        System.assertEquals(0,celsius,'Boiling point temperature is not expected.');
+        System.assertEquals(100,celsius,'Boiling point temperature is not expected.');
     }
     
     @isTest static void testNegativeTemp() {
