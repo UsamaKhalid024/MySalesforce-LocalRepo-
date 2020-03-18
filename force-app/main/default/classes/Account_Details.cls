@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 17/03/2020, 10:27:55 am
+ * @Last Modified On   : 18/03/2020, 10:36:34 am
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/12/2019   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -26,6 +26,9 @@ public class Account_Details {
         }
         update List_to_update;
         System.debug(List_to_update);
+
+        system.debug('This is another Testing');
+
     }
     
     public static void dell_contacts(){
