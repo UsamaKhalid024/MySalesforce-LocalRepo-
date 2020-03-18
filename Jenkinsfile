@@ -67,7 +67,7 @@ node {
         }
 
         stage('collect results') {
-            junit keepLongStdio: true, testResults: 'tests/**/*-junit.xml'
+            junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
         }
     }
 }
