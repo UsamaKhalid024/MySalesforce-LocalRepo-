@@ -10,8 +10,9 @@ node {
     def SFDC_HOST = env.SFDC_HOST_DH
     def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
     def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
+    def RUN_ARTIFACT_DIR = "C:/Usama Khalid/MyStandardOrgData/MySalesforce-LocalRepo-/tests"
 
-    println 'KEY IS' 
+    println 'KEY IS'
     println JWT_KEY_CRED_ID
     println HUB_ORG
     println SFDC_HOST
@@ -40,6 +41,16 @@ node {
             //if (rc != 0) { error 'cannot create mdapi diretory' }
             //rc = bat returnStatus: true, script: "sfdx force:source:convert -d mdapi"
             //if (rc != 0) { error 'cannot convert source to mdapi' }
+        }
+
+        stage('Run Apex Test') {
+            sh "mkdir -p ${RUN_ARTIFACT_DIR}"
+            timeout(time: 120, unit: 'SECONDS') {
+                rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:apex:test:run --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --resultformat tap --targetusername ${HUB_ORG}"
+                if (rc != 0) {
+                    error 'apex test run failed'
+                }
+            }
         }
 
 		stage('Deploye Code'){
