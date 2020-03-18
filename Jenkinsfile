@@ -49,6 +49,11 @@ node {
                 if (rc != 0) {
                     error 'apex test run failed'
                 }
+
+                rc = bat returnStatus: true, script: "sfdx force:apex:test:report -i 7072v0000DZkAnl -u ${HUB_ORG}"
+                if (rc != 0) {
+                    error 'apex test run failed'
+                }
             }
         }
 
