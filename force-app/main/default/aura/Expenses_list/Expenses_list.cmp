@@ -1,7 +1,18 @@
+<!--
+  @File Name          : Expenses_list.cmp
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 18/03/2020, 10:44:20 am
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
 <aura:component controller='ExpensesController'>
 
     <aura:attribute name="formateddate" type="Date" />
     <aura:attribute name="expense" type="Expense__c" />
+    <!--this is usama khalid-->
 
-    
 </aura:component>
