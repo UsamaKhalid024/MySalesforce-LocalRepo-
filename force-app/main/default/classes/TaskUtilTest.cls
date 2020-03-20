@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 18/03/2020, 4:08:35 pm
+ * @Last Modified On   : 21/03/2020, 2:45:00 am
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -15,6 +15,11 @@ private class TaskUtilTest {
         System.debug('Testing');
         String pri = TaskUtil.getTaskPriority('CA');
         System.assertEquals('High', pri);
+    }
+
+    @isTest static void testTaskPriority2(){
+        String pri = TaskUtil.getTaskPriority('PK');
+        System.assertEquals('Low', pri);
     }
     
     @isTest static void testTaskPriority1() {

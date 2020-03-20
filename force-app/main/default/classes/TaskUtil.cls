@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 18/03/2020, 4:18:30 pm
+ * @Last Modified On   : 21/03/2020, 2:43:08 am
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -20,8 +20,11 @@ public class TaskUtil {
         String taskPriority;
         
           if (leadState == 'CA') {
-             taskPriority = 'High'; 
-        } else {
+             taskPriority = 'High';
+        } else if(leadState == 'PK'){
+            taskPriority = 'Low';
+        }
+        else {
              taskPriority = 'Normal';
         }
         
