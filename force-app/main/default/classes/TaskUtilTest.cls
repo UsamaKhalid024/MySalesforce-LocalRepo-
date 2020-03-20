@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 21/03/2020, 2:45:00 am
+ * @Last Modified On   : 21/03/2020, 3:02:08 am
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -27,5 +27,9 @@ private class TaskUtilTest {
         System.assertEquals('Normal', pri);
     }
     
+    @isTest static void testTaskPriority3(){
+        List<Account> Acc = [SELECT Id, Name FROM Account];
+        System.assertEquals(Acc, TaskUtil.Cals());
+    }
     
 }
