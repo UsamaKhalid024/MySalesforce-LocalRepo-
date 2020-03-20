@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 21/03/2020, 3:07:36 am
+ * @Last Modified On   : 21/03/2020, 3:10:41 am
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -32,7 +32,7 @@ public class TaskUtil {
     }
 
     public static List<Account> Cals(){
-        List<Account> Acc = [SELECT Id, Name FROM Account] ;
+        List<Account> Acc = [SELECT Id, Name FROM Account];
         return Acc;
     }
 }
