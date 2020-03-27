@@ -4,7 +4,7 @@
  * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
  * @Group              : 
  * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
- * @Last Modified On   : 21/03/2020, 2:06:15 am
+ * @Last Modified On   : 27/03/2020, 4:37:06 pm
  * @Modification Log   : 
  * Ver       Date            Author      		    Modification
  * 1.0    18/12/2019   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
@@ -29,6 +29,7 @@ public class Account_Details {
 
         system.debug('This is another Testing');
         System.debug('This is new changes comming');
+        system.debug('This is test for workflow');
     }
 
     public static list<Contact> Calculator(){
